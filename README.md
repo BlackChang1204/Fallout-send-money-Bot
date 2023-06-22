@@ -18,5 +18,5 @@
 此bot是以[McHateBot_raid](https://github.com/Forever-Hate/McHateBot_raid)加以製作而成
 
 **如不會使用，歡迎私訊我DC:blackchang7777<br>
-**如有想新增的功能 or Bug，歡迎使用[issue](https://github.com/Forever-Hate/McHateBot_emerald/issues)**<br>
+**如有想新增的功能 or Bug，歡迎使用[issue](https://github.com/BlackChang1204/Money-Delivery-Bot/issues)**<br>
 **使用說明 & wiki:[維基](https://github.com/Forever-Hate/McHateBot_emerald/wiki)**
