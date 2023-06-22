@@ -1,9 +1,9 @@
 {
     "ip": "jp.mcfallout.net",                 
-    "port": "25565",                          
-    "username": "525252",
-    "password": "525252",
-    "money_password" : "o.o/",
-    "whitelist" : "BlackChangTW",
-    "money" : 10000
-  }
+    "port": "",                          
+    "username": "",
+    "password": "",
+    "money_password" : "",
+    "whitelist" : [""],
+    "money" : 10
+}

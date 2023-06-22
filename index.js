@@ -23,28 +23,41 @@ tokens.use(LoginOption, function(_err, _opts){ // 驗證緩存 BOT登入伺服�
   
 
 
-  let GetMoneyPlayer = [] // 查詢BOT身上的綠寶石數目
+  let GetMoneyPlayer = [] // 讓bot記住哪些玩家領過錢
   bot.on('messagestr', (message, messagePosition, jsonMsg, sender, verified) => {
     console.log(message)
-    if(message === "[BlackChangTW -> 您] bal") {
-      bot.chat("/bal")
+    for (let i = 0; i < config.whitelist.length; i++) {
+
+
+      if ((message === "[系統] " + config.whitelist[i] + " 想要傳送到 你 的位置") || (message === "[系統] " + config.whitelist[i] + " 想要你傳送到 該玩家 的位置")) { //接受白名單內的tp/tpahere請求
+        bot.chat("/tpaccept")
+      }
+
+
+      if(message === "["+  config.whitelist[i] + " -> 您] bal") { // 讓bot取得/bank中的綠寶石數量
+        balName = config.whitelist[i] //儲存發送bal給BOT的白名單ID 防止BOT將訊息發送給其他擁有權限的玩家
+        sendMoneyMsg = true //判斷是否需要發送綠寶石數量
+        bot.chat("/bal")
+      }
+
+
+      if (message[0] === "金" && sendMoneyMsg) {  // 讓bot回報bank中的綠寶石數量
+          bot.chat("/m " + balName + " 擁有綠寶石數量:" + message.slice(4))
+          sendMoneyMsg = false
+
+
+      }
+
+
+    
+      let IDLength = config.whitelist[i].length
+      if (message.slice(0, 12+IDLength) === "[" + config.whitelist[i] + " -> 您] cmd ") { // 讓BOT輸入訊息或指令
+        bot.chat(message.slice(12+IDLength))
+      }
     }
-    if (message[0] === "金") { 
-      bot.chat("/m " + config.whitelist + " 擁有綠寶石數量:" + message.slice(4))
-    }
 
 
 
-
-    if (message==="[系統] " + config.whitelist + " 想要傳送到 你 的位置") { // tp/tpahere請求處理
-      bot.chat('/tpaccept')}
-    if (message==="[系統] " + config.whitelist + " 想要你傳送到 該玩家 的位置") {
-      bot.chat('/tpaccept')}
-
-
-
-    if (message.slice(0, 12+config.whitelist.length) === "[" + config.whitelist + " -> 您] cmd ") { // 讓BOT輸入訊息或指令
-      bot.chat(message.slice(12+config.whitelist.length))}
     
     
     let Status = true // BOT目前可不可pay給玩家
@@ -77,12 +90,13 @@ tokens.use(LoginOption, function(_err, _opts){ // 驗證緩存 BOT登入伺服�
           Status = false
           bot.chat("/pay " + PlayerName + " " + config.money)
           console.log(Status)
-          setTimeout(function() {
-            bot.chat("/m " + config.whitelist + " " + PlayerName + " 已領取")
-          }, 5000);
-          Status = true
+          
+          for (let i = 0; i <= config.whitelist.length; i++) {
+            setTimeout(function() {
+            bot.chat("/m " + config.whitelist[i] + " " + PlayerName + " 已領取")
+            }, 5000);
+          }
           GetMoneyPlayer.push(PlayerName)
-          console.log(Status)
       }
 
 
