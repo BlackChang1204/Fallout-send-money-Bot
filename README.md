@@ -5,7 +5,7 @@
 發錢Bot
 ---------------------------------------------------
 **用於廢土伺服器**
-[#**點我前往下載**](https://github.com/Forever-Hate/McHateBot_emerald/releases)<br>
+[#**點我前往下載**](https://github.com/BlackChang1204/Money-Delivery-Bot/releases)<br>
 ## 主要特色、功能
 ```  
 1.透過私訊Bot來執行指令(須設定白名單)  
