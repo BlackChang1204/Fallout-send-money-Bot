@@ -12,7 +12,7 @@
 1.透過私訊Bot來執行指令(須設定白名單)  
 2.白名單指令系統(避免有心人士亂搞)  
 3.自動接受tpa & tpahere(需白名單)
-4.發錢者透過Bot來達成發錢目的
+4.透過私訊Bot發錢密碼 讓你更方便的進行發錢活動
 ```
 ## 授權
 本著作採用創用CC[姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW)授權條款授權<br>
